@@ -9,11 +9,18 @@
 <body>
     <h1>Quora Posts</h1>
    <% for(post of posts){ %>
-                <div class="post">
-                    <h3 class="user">@<%= post.username %></h3>
-
-                    <h4 class = "content"> <%= post.Content %> </h4>
-                </div>
+        <div class="post">
+            <h3 class="user">@<%= post.username %></h3>
+            <h4 class = "content"> <%= post.Content %> </h4>
+                    <!-- <button><a href="http://localhost:8080/posts/<%= post.id %>">Edit Content</a></button> -->
+        <br>
+            <a href="http://localhost:8080/posts/<%= post.id %>">View profile</a> <!--request goes to show path for id from array of obj-->
+            <a href="http://localhost:8080/posts/<%= post.id %>/edit">Edit post</a>
+        <form action="http://localhost:8080/posts/<%= post.id %>/?_method=DELETE" method="post">
+            <button >Delete Post</button>    
+        </form>
+        <br>
+        </div>
  <%  } %>
 
  <br>
